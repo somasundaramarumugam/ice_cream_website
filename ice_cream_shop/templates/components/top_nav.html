@@ -1,0 +1,85 @@
+<!-- Topbar Start -->
+
+<div class="container-fluid bg-primary py-3 d-none d-md-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex  ">
+                    <a class="text-white px-3" href="">
+                        <i class=""></i> welcome  {{username}}
+                    </a>
+                    {% if 'Home' in page_name %}
+                    <a  href="{% url 'user:index' %}" class="text-white px-3" href="">
+                        <i class="fas fa-user-plus"></i> Login / Signup
+                    </a>
+                    {% endif %}
+                    <!-- <a class="text-white px-3" href="">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<div class="container-fluid position-relative nav-bar p-0">
+    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>CREAM</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto py-0">
+                    <a href='{% url "ice_cream:home" %}' class="nav-item nav-link">Home</a>
+                    <a href='{% url "ice_cream:about" %}' class="nav-item nav-link {% if request.path == '/about/'%} active {% endif %}">About</a>
+                    <a href='{% url "ice_cream:product" %}' class="nav-item nav-link {% if request.path == '/product/'%} active {% endif %}">Product</a>
+                </div>
+                <a href="#" class="navbar-brand mx-5 d-none d-lg-block">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>CREAM</h1>
+                </a>
+                <div class="navbar-nav mr-auto py-0">
+                    <a href='{% url "ice_cream:service" %}' class="nav-item nav-link {% if request.path == '/service/'%} active {% endif %}">Service</a>
+                    <a href='{% url "ice_cream:gallery" %}' class="nav-item nav-link {% if request.path == '/gallery/'%} active {% endif %}">Gallery</a>
+                    <a href='{% url "ice_cream:contact" %}' class="nav-item nav-link {% if request.path == '/contact/'%} active {% endif %}">Orders</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+{% if page_name != 'Home '%}
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">{{page_name}}</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="">Home</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0">{{page_name}}</p>
+        </div>
+    </div>
+</div>
+{% else %}
+
+{% endif %}
+<!-- Header End -->
